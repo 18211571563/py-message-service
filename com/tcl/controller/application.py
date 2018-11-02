@@ -4,7 +4,7 @@ import json
 
 from flask import Flask, Response
 
-from com.tcl.controller import tushare_data_service as ts
+import tushare_data_service as ts
 
 '''
     健康心跳
