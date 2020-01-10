@@ -64,4 +64,12 @@ def new_share():
     data = ts.new_share()
     return data.to_json(orient='records').decode("unicode_escape");
 
+'''
+    日线行情
+'''
+@app.route('/daily/<ts_code>/<start_date>/<end_date>', methods=['GET'])
+def daily(ts_code, start_date, end_date):
+    data = ts.daily(ts_code, start_date, end_date)
+    return data.to_json(orient='records').decode("unicode_escape");
+
 app.run(port=3000, host='0.0.0.0');
