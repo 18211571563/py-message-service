@@ -43,10 +43,15 @@ def stock_basic():
             start_date		开始日期
             end_date		结束日期
             is_open	int	N	是否交易 0休市 1交易
+        输出参数:
+            exchange	    str	Y	交易所 SSE上交所,SZSE深交所,CFFEX 中金所,SHFE 上期所,CZCE 郑商所,DCE 大商所,INE 上能源,IB 银行间,XHKG 港交所
+            cal_date	    str	Y	日历日期
+            is_open	        str	Y	是否交易 0休市 1交易
+            pretrade_date	str	N	上一个交易日
 ###############################################################################################################
 '''
-def trade_cal():
-    return pro.trade_cal(exchange='', start_date='', end_date='');
+def trade_cal(exchange = '', start_date = '', end_date = ''):
+    return pro.trade_cal(exchange=  exchange, start_date= start_date, end_date= end_date);
 
 
 '''

@@ -27,9 +27,9 @@ def stock_basic():
 '''
     交易日历
 '''
-@app.route("/trade_cal")
-def trade_cal():
-    data = ts.trade_cal()
+@app.route("/trade_cal/<exchange>/<start_date>/<end_date>")
+def trade_cal(exchange = '', start_date = '', end_date = ''):
+    data = ts.trade_cal(exchange, start_date, end_date)
     return data.to_json(orient='records').decode("unicode_escape");
 
 '''
@@ -71,5 +71,6 @@ def new_share():
 def daily(ts_code, start_date, end_date):
     data = ts.daily(ts_code, start_date, end_date)
     return data.to_json(orient='records').decode("unicode_escape");
+
 
 app.run(port=3000, host='0.0.0.0');
