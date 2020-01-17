@@ -35,7 +35,7 @@ def stock_basic():
 
 '''
 ###############################################################################################################
-    股票列表:
+    交易日历:
         接口：trade_cal
         描述：获取各大交易所交易日历数据,默认提取的是上交所
         输入参数：
@@ -142,3 +142,14 @@ def new_share():
 '''
 def daily(ts_code, start_date, end_date):
     return pro.daily(ts_code=ts_code, start_date=start_date, end_date=end_date)
+
+'''
+###############################################################################################################
+    通用行情接口
+        接口：pro_bar
+        
+###############################################################################################################
+'''
+def pro_bar(ts_code, start_date, end_date):
+    df = ts.pro_bar(api=pro, ts_code=ts_code, adj='qfq', start_date=start_date, end_date=end_date)
+    return df
