@@ -76,10 +76,9 @@ def daily(ts_code, start_date, end_date):
 '''
     通用行情接口
 '''
-@app.route('/pro_bar/<ts_code>/<start_date>/<end_date>', methods=['GET'])
-def pro_bar(ts_code, start_date, end_date):
-    data = ts.pro_bar(ts_code, start_date, end_date)
+@app.route('/pro_bar/<asset>/<ts_code>/<start_date>/<end_date>', methods=['GET'])
+def pro_bar(asset, ts_code, start_date, end_date):
+    data = ts.pro_bar(asset, ts_code, start_date, end_date)
     return data.to_json(orient='records').decode("unicode_escape");
-
 
 app.run(port=3000, host='0.0.0.0');

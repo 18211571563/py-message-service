@@ -150,6 +150,6 @@ def daily(ts_code, start_date, end_date):
         
 ###############################################################################################################
 '''
-def pro_bar(ts_code, start_date, end_date):
-    df = ts.pro_bar(api=pro, ts_code=ts_code, adj='qfq', start_date=start_date, end_date=end_date)
+def pro_bar(asset ,ts_code, start_date, end_date):
+    df = ts.pro_bar(asset=asset, api=pro, ts_code=ts_code, adj='qfq', start_date=start_date, end_date=end_date)
     return df
