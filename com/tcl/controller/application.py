@@ -5,6 +5,7 @@ import json
 from flask import Flask, Response
 
 import basic_data_service as ts
+import index_basic_data_service as ibds
 
 '''
     健康心跳
@@ -74,11 +75,23 @@ def daily(ts_code, start_date, end_date):
 
 
 '''
+    获取指数基础信息
+'''
+@app.route("/index_basic/<market>")
+def index_basic(market):
+    data = ibds.index_basic(market)
+    return data.to_json(orient='records').decode("unicode_escape");
+
+
+'''
     通用行情接口
 '''
 @app.route('/pro_bar/<asset>/<ts_code>/<start_date>/<end_date>', methods=['GET'])
 def pro_bar(asset, ts_code, start_date, end_date):
     data = ts.pro_bar(asset, ts_code, start_date, end_date)
     return data.to_json(orient='records').decode("unicode_escape");
+
+
+
 
 app.run(port=3000, host='0.0.0.0');
